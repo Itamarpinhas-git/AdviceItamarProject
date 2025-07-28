@@ -65,7 +65,7 @@ dotnet run
 ### הרצת הקליינט (Frontend)
 
 ```bash
-cd frontend
+cd front
 npm install
 npm start
 ```
