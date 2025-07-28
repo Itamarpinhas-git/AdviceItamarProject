@@ -56,13 +56,9 @@ elevator-system/
    dotnet ef migrations add InitialCreate  # יצירת migration ראשוני
    dotnet ef database update              # 
 
-   dotnet ef database update
    ```
    השתמשתי בMigrations  כדי  לבנות את המבנה המורכב של הפרויקט -
-   
-```bash
-ALTER TABLE ElevatorCallAssignment ALTER COLUMN CallID int NOT NULL;
-```
+
 
 ### הרצת השרת (Backend)
 
@@ -73,7 +69,6 @@ dotnet run
 ```
 
 
-בנוסף צריך להריץ את הQUERY  הזה  כדי שהDB יעבוד טוב משום מה זה לא עובד עם הMIGRATIONS 
 
 השרת יעלה על: `https://localhost:5285`
 
