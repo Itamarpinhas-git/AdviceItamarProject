@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import LoginPage from './Pages/LoginPage';
 import RegisterPage from './Pages/RegisterPage';
 import BuildingsPage from './Pages/BuildingsPage';
@@ -12,7 +12,9 @@ export default function App() {
     <BrowserRouter>
       <Navbar />
       <Routes>
-      
+        {/* Default route - redirects to register */}
+        <Route path="/" element={<Navigate to="/register" replace />} />
+        
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route
@@ -31,8 +33,10 @@ export default function App() {
             </ProtectedRoute>
           }
         />
-
-              </Routes>
-            </BrowserRouter>
-      );
-  }
+        
+        {/* Catch all route - redirects unknown paths to register */}
+        <Route path="*" element={<Navigate to="/register" replace />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
