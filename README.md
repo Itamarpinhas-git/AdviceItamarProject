@@ -48,14 +48,14 @@ elevator-system/
 
 3. **הרץ migrations** ליצירת מסד הנתונים:
    ```bash
-   cd backend
+   cd AdviceItamarProject
    dotnet ef database update
    ```
    השתמשתי בMigrations  כדי  לבנות את המבנה המורכב של הפרויקט -
 ### הרצת השרת (Backend)
 
 ```bash
-cd backend
+cd AdviceItamarProject
 dotnet restore
 dotnet run
 ```
@@ -72,7 +72,7 @@ ALTER TABLE ElevatorCallAssignment ALTER COLUMN CallID int NOT NULL;
 ### הרצת הקליינט (Frontend)
 
 ```bash
-cd frontend
+cd front
 npm install
 npm start
 ```
