@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
@@ -85,8 +85,12 @@ public partial class ElevatorDbContext : DbContext
         {
             entity.ToTable("ElevatorCallAssignment");
 
-            // CallID is the primary key
+            // CallID is the primary key but NOT an identity column
             entity.HasKey(e => e.CallID);
+            
+            // 🔑 CRITICAL FIX: Prevent CallID from being an identity column
+            entity.Property(e => e.CallID)
+                  .ValueGeneratedNever(); // This prevents auto-increment!
 
             entity.Property(e => e.AssignmentTime).HasColumnType("datetime");
 
@@ -97,10 +101,10 @@ public partial class ElevatorDbContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_ElevatorCallAssignment_Elevator");
 
-            // 🔑 CRITICAL FIX: Use ElevatorCallId as the foreign key, not CallID
+            // Relationship to ElevatorCall using ElevatorCallId
             entity.HasOne(d => d.ElevatorCall)
                 .WithMany(p => p.Assignments)
-                .HasForeignKey(d => d.ElevatorCallId) // Use ElevatorCallId column
+                .HasForeignKey(d => d.ElevatorCallId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_ElevatorCallAssignment_ElevatorCall_ElevatorCallId");
         });
