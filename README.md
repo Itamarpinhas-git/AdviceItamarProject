@@ -59,6 +59,11 @@ elevator-system/
    dotnet ef database update
    ```
    השתמשתי בMigrations  כדי  לבנות את המבנה המורכב של הפרויקט -
+   
+```bash
+ALTER TABLE ElevatorCallAssignment ALTER COLUMN CallID int NOT NULL;
+```
+
 ### הרצת השרת (Backend)
 
 ```bash
@@ -69,10 +74,6 @@ dotnet run
 
 
 בנוסף צריך להריץ את הQUERY  הזה  כדי שהDB יעבוד טוב משום מה זה לא עובד עם הMIGRATIONS 
-```bash
-ALTER TABLE ElevatorCallAssignment ALTER COLUMN CallID int NOT NULL;
-```
-
 
 השרת יעלה על: `https://localhost:5285`
 
