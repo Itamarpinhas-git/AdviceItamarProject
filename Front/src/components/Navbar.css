@@ -1,0 +1,16 @@
+.nav-link {
+  text-decoration: none;
+  color: #495057;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #dee2e6;
+  background-color: #ffffff;
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+  border-color: #adb5bd;
+  background-color: #f8f9fa;
+  opacity: 0.85;
+}

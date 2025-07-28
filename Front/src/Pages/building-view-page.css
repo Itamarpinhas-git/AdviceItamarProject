@@ -1,0 +1,12 @@
+.building-view-page {
+  padding: 24px;
+  direction: rtl;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.building-view-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: #1e3a8a; /* dark blue */
+}
