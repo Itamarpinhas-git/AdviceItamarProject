@@ -64,12 +64,14 @@ AdviceItamarProject/
    # הורד מ: https://www.microsoft.com/en-us/sql-server/sql-server-downloads
    ```
 
-2. **עדכן connection string** אם נדרש (ברירת מחדל עובדת עם LocalDB):
-   ```csharp
-   // בקובץ ElevatorDbContext.cs - הגדרת ברירת המחדל:
-   "Server=localhost;Database=elevatorDB;Trusted_Connection=True;TrustServerCertificate=True;"
+2. **עדכן connection string** ב-`appsettings.json`:
+   ```json
+   {
+     "ConnectionStrings": {
+       "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=ElevatorSystemDB;Trusted_Connection=true;"
+     }
+   }
    ```
-
 3. **יצירת מסד הנתונים והרצת migrations**:
    ```bash
    cd AdviceItamarProject
