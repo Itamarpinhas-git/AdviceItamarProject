@@ -44,7 +44,10 @@ elevator-system/
        "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=ElevatorSystemDB;Trusted_Connection=true;"
      }
    }
-   ```
+   ``` cd AdviceItamarProject
+   dotnet tool install --global dotnet-ef  # התקנת EF tools (פעם אחת)
+   dotnet ef migrations add InitialCreate  # יצירת migration ראשוני
+   dotnet ef database update              # 
 
 3. **הרץ migrations** ליצירת מסד הנתונים:
    ```bash
